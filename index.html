@@ -1,26 +1,52 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Control Finance</title>
-    <link
-      rel="shortcut icon"
-      href="./src/assets/favicon.ico"
-      type="image/x-icon"
-    />
-    <meta
-      name="description"
-      content="Control Finance - Seu controle financeiro"
-    />
-    <link rel="stylesheet" href="./src/styles/globalStyles.css" />
-    <link rel="stylesheet" href="./src/styles/index.css" />
-  </head>
-  <body>
-    <main id="app"></main>
-    <script src="./src/scripts/modal.js"></script>
-    <script src="./src/scripts/valuesData.js"></script>
-    <script src="./src/scripts/index.js"></script>
-  </body>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Control Finance</title>
+  <link rel="shortcut icon" href="./src/assets/favicon.ico" type="image/x-icon" />
+  <meta name="description" content="Control Finance - Seu controle financeiro" />
+  <link rel="stylesheet" href="./src/styles/globalStyles.css" />
+  <link rel="stylesheet" href="./src/styles/index.css" />
+</head>
+
+<body>
+
+  <header>
+    <p class="header__logo"><span class="header__logo__color--diff">Control</span> Finance</p>
+    <button class="header__button">Registrar novo valor</button>
+  </header>
+  <h1>Resumo financeiro</h1>
+  <section></section>
+  <main id="app"></main>
+  <dialog >
+    <div class="dialog__div--1">
+      <div class="dialog__div--2">
+        <h2 class="dialog__div--title">Registro de valor</h2>
+        <button class="dialog__div--button">x</button>
+      </div>
+      <p class="dialog__text">
+        Digite o valor e em seguida aperte no botão referente ao tipo do valor
+      </p>
+      <span class="dialog__span">Valor</span>
+      <input type="number" placeholder=" R$ 00,00" class="dialog__input">
+      <span class="dialog__span">Tipo de valor </span>
+      <div class="dialog__div--3">
+        <input type='radio' hidden="0" value="0" name="input__modal" placeholder="">
+          <label for="input__Modal" name="label__modal" class="dialog__label--entrada"> Entrada</label>
+          <label for="input__Modal" name="label__modal" class="dialog__label--saida"> Saida</label>
+      </div>
+      <div class="dialog__div--4">
+        <button class="dialog__div4__button1">Cancelar</button>
+        <button class="dialog__div4__button2">Inserir valor</button>
+      </div>
+    </div>
+  </dialog>
+  <script src="./src/scripts/modal.js"></script>
+  <script src="./src/scripts/valuesData.js"></script>
+  <script src="./src/scripts/index.js"></script>
+</body>
+
 </html>

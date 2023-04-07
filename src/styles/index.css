@@ -1,1 +1,39 @@
 /* Desenvolva a estilização da sua página aqui */
+ 
+
+header{
+    position: fixed;
+    left: 0;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--color-grey-5);
+    height: 18vh;
+    width: 100vw;
+    position: relative;
+}
+
+.header__logo{
+    font-weight: 600;
+    font-size: 1.25rem;
+    position: absolute;
+    left: 16px;
+    top: 28px;
+    
+}
+.header__logo__color--diff {
+    color: var(--color-brand-1);
+    
+}
+
+.header__button {
+    background-color: var(--color-brand-1);
+    height: 2rem;
+    width: 74vw;
+    color: #ffffff;
+    position: absolute;
+    left: 16px;
+    top: 72px;
+    border: none;
+    border-radius: 8px;
+}
