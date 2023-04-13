@@ -18,9 +18,10 @@
     <p class="header__logo"><span class="header__logo__color--diff">Control</span> Finance</p>
     <button class="header__button">Registrar novo valor</button>
   </header>
-  <h1>Resumo financeiro</h1>
-  <section></section>
-  <main id="app"></main>
+  
+  <main id="app">
+
+  </main>
   <dialog >
     <div class="dialog__div--1">
       <div class="dialog__div--2">
@@ -31,16 +32,17 @@
         Digite o valor e em seguida aperte no botão referente ao tipo do valor
       </p>
       <span class="dialog__span">Valor</span>
-      <input type="number" placeholder=" R$ 00,00" class="dialog__input">
+      <input type="number" placeholder=" R$ 00,00" class="dialog__input" required>
       <span class="dialog__span">Tipo de valor </span>
       <div class="dialog__div--3">
-        <input type='radio' hidden="0" value="0" name="input__modal" placeholder="">
-          <label for="input__Modal" name="label__modal" class="dialog__label--entrada"> Entrada</label>
-          <label for="input__Modal" name="label__modal" class="dialog__label--saida"> Saida</label>
+        <input type='radio'   id="entrada" placeholder="" name="batata" class="dialog__input__type--transantion" hidden>
+          <label  for="entrada" value="0" name="label__modal" class="dialog__label--entrada"> Entrada</label>
+          <input type='radio'   id="saida" placeholder="" name='batata'class="dialog__input__type--transantion" hidden>
+          <label for="saida" value="1" name="label__modal2" class="dialog__label--saida"> Saida</label>
       </div>
       <div class="dialog__div--4">
         <button class="dialog__div4__button1">Cancelar</button>
-        <button class="dialog__div4__button2">Inserir valor</button>
+        <button class="dialog__div4__button2" type="submit">Inserir valor</button>
       </div>
     </div>
   </dialog>

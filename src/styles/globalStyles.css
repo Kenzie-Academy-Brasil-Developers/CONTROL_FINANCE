@@ -165,3 +165,9 @@ line-height: 19px;
   right: 0;
   
 }
+
+.dialog__label--entrada:hover {
+ border: var(--color-brand-1);
+ animation: var(--animation-type);
+  border: 5px;
+}
