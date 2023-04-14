@@ -56,18 +56,22 @@ body {
     max-width: 43rem;
     margin: 0 1rem;
   }
-} 
+}
 
 dialog {
-  width: 90vw ;
-  height:   60vh;
+  width: 90vw;
+  height: 60vh;
   position: absolute;
+  border-radius: var(--radius-1);
+  top: 7vh;
   left: 5vw;
   padding-left: 1.5rem;
   padding-right: 1.5rem;
   padding-top: 1.8125rem;
   border: none;
+  
 }
+
 .dialog__div--1 {
   display: flex;
   flex-direction: column;
@@ -79,68 +83,82 @@ dialog {
   justify-content: space-between;
 }
 
-.dialog__div--title{
+.dialog__div--title {
   display: flex;
-color: var(--color-grey-1);
-font-size: 1.25rem;
-font-weight: 600;
-line-height: 19px;
+  color: var(--color-grey-1);
+  font-size: var(--font-size-1);
+  font-weight:var(--font-weight-1);
+  line-height: var(--font-line-height-1)
 
 }
+
 .dialog__div--button {
   height: 1.875rem;
   width: 2.1875rem;
   border-radius: .25rem;
+  font-family: var(--font-family-2);
   border: none;
-  font-size: 1.5625rem;
-  font: 600;
+  font-size: var(--font-size-1);
+  font-weight: var(--font-weight-1);
   color: var(--color-grey-2);
 }
+
 .dialog__text {
-  font-size: .875rem;
-  font-weight: 400;
+  font-size: var(--font-size-3);
+  font-weight: var(--font-weight-3);
   line-height: 1.3125rem;
   color: var(--color-grey-2);
 }
-.dialog__input{
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.dialog__input {
   height: 2.75rem;
   width: 80vw;
-  color:var(--color-grey-3) ;
-  border-color: var(--color-grey-3);
-  border-radius: .5rem;
+  color: var(--color-grey-2);
+  border: solid var(--color-grey-3);
+  border-radius: var(--radius-1);
+  padding: 1.25rem;
+  font-size: var(--font-size-2);
+  font-weight: var(--font-weight-2);
   
 }
 
 .dialog__span {
-  font-weight: 500;
-  font-size: .875rem;
+  font-weight: var(--font-weight-2);
+  font-size: var(--font-size-3);
 }
 
 .dialog__label--entrada {
   width: 80vw;
   height: 2rem;
-  border-radius: .5rem;
-  background-color: var(--color-grey-5);
+  border-radius: var(--radius-1);
+  background-color: var(--color-grey-4);
   color: var(--color-grey-2);
-  font-weight: 600;
-  font-size: .875rem;
+  font-weight: var(--font-weight-1);
+  font-size: var(--font-size-3);
   display: flex;
   justify-content: center;
   align-items: center;
   margin-bottom: .0625rem;
 }
+
 .dialog__label--saida {
   width: 80vw;
   height: 2rem;
-  border-radius: .5rem;
-  background-color: var(--color-grey-5);
+  border-radius: var(--radius-1);
+  background-color: var(--color-grey-4);
   color: var(--color-grey-2);
-  font-weight: 600;
-  font-size: .875rem;
+  font-weight: var(--font-weight-1);
+  font-size: var(--font-size-3);
   display: flex;
   justify-content: center;
   align-items: center;
 }
+
 .dialog__div--4 {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -148,21 +166,41 @@ line-height: 19px;
   position: relative;
 
 }
+
 .dialog__div4__button1 {
   height: 1.9375rem;
   width: 32vw;
-  background-color: var(--color-grey-4);
+  background-color: var(--color-grey-5);
   border: none;
   border-radius: .3125rem;
 }
+
 .dialog__div4__button2 {
   height: 1.9375rem;
   width: 32vw;
   background-color: var(--color-brand-1);
-  border:none;
+  border: none;
   border-radius: .3125rem;
   position: absolute;
   right: 0;
-  
+
 }
 
+.dialog__div4__button2:hover {
+  background-color: var(--color-brand-2);
+  color: var(--fixed-white);
+}
+.dialog__div4__button1:hover{
+    background-color: var(--color-grey-4);
+}
+
+.dialog__label--entrada:hover {
+  background-color: var(--color-grey-5);
+}
+.dialog__label--saida:hover {
+  background-color: var(--color-grey-5);
+}
+.dialog__input:focus {
+  outline-color: var(--color-brand-2) ;
+  
+}
