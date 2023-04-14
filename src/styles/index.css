@@ -119,6 +119,7 @@ header{
     flex-direction: column;
     position: absolute;
    gap: 1.875rem;
+   
 
 }   
 .section-transation__container-two__div-sum {
@@ -143,7 +144,7 @@ header{
     padding-right :25px;
 }
 .section-transation__container-two__list-value {
-    
+    overflow-y: auto;
     top: 1.25rem;
     left: 0;
     height: 50vh    ;

@@ -75,7 +75,7 @@ let contId = insertedValues.length
     
  let renderizar = render(insertedValues)
 
-        let arr = []
+        
     
 
     function render(list){
@@ -123,14 +123,32 @@ let contId = insertedValues.length
             
             
             buttonCard.addEventListener('click', ()=>{
-                    let test = targerbutton(card)
+                    let currentCardClicked = targerbutton(card)
                    
-                    soma = soma - test.value
+                   insertedValues.splice(i,1)
+                  
+                   
+                   
+                   let indice = teste33(currentCardClicked.id,entradas)
+
+                    if (currentCardClicked.categoryID == 0){
+
+                        entradas.splice(indice,1)
+
+                    } else if (currentCardClicked.categoryID == 1){
+                        saidas.splice(indice,1)
+                    }
+
+            
+                listValues.innerText = ''
+                renderizar = render(insertedValues)
+
+                    soma = soma - currentCardClicked.value
                     result = dollar + soma
                     currentSum.innerText = result  
-                    card.remove(insertedValues)
                     
                     
+                   
                     
 
             })
@@ -140,19 +158,24 @@ let contId = insertedValues.length
         }
         
     }
-        let entradas = []
-        let saidas = []
-        let exclud = []
+    let entradas = insertedValues.filter(batata => insertedValues.categoryID == 0)
+    console.log(entradas)
+    let saidas = insertedValues.filter(batata=> insertedValues.categoryID == 1)
+ 
     function separeteTransationsforID(list){
+        
         for (let i = 0 ; i < list.length; i++) {
+           
             if (list[i].categoryID == 0){
 
                 
                 
                 entradas.push(list[i])
-            } else {
+            } else if (list[i].categoryID == 1) {
                 saidas.push(list[i])
                 
+            } else {
+                lixeira.push(list[i])
             }
         }
     }
@@ -194,6 +217,7 @@ let contId = insertedValues.length
      })
 
     
+
     function somar(list){
          soma = 0
         for (let i = 0; i < list.length ; i++){
@@ -218,5 +242,20 @@ let contId = insertedValues.length
 
    
 
-    let lixeira = []
-  
+   
+
+
+  function teste33(id,list){
+    for (let i = 0; i < list.length ; i++){
+        if (id == list[i].id ){
+
+           return i
+
+
+
+        }
+  }
+  }
+
+
+ 

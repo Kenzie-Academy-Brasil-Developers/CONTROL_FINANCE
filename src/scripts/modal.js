@@ -14,7 +14,7 @@ const buttonSend = document.querySelector('.dialog__div4__button2')
 
 
 const entryButton = document.querySelector('.dialog__input__type--transantion')
-console.log(entryButton)
+
 let type = 0
 
 
