@@ -29,11 +29,15 @@ buttonSend.addEventListener('click', () => {
         type = 1
 
     }
+    
     newValue(valuefomatado, type)
     listValues.innerText = ''
     renderizar = render(insertedValues)
     currentSum.innerText = somar(insertedValues)
-
+    if(valid > 0){
+        renderww = ''
+    }
+    
     modal.close()
 
 })

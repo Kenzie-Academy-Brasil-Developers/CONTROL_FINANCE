@@ -69,7 +69,7 @@ dialog {
   padding-right: 1.5rem;
   padding-top: 1.8125rem;
   border: none;
-  
+  animation: animationmodal var(--animation-duration) var(--animation-type);
 }
 
 .dialog__div--1 {
@@ -87,9 +87,8 @@ dialog {
   display: flex;
   color: var(--color-grey-1);
   font-size: var(--font-size-1);
-  font-weight:var(--font-weight-1);
+  font-weight: var(--font-weight-1);
   line-height: var(--font-line-height-1)
-
 }
 
 .dialog__div--button {
@@ -109,6 +108,7 @@ dialog {
   line-height: 1.3125rem;
   color: var(--color-grey-2);
 }
+
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
@@ -124,7 +124,7 @@ input::-webkit-inner-spin-button {
   padding: 1.25rem;
   font-size: var(--font-size-2);
   font-weight: var(--font-weight-2);
-  
+
 }
 
 .dialog__span {
@@ -140,6 +140,7 @@ input::-webkit-inner-spin-button {
   color: var(--color-grey-2);
   font-weight: var(--font-weight-1);
   font-size: var(--font-size-3);
+
   display: flex;
   justify-content: center;
   align-items: center;
@@ -155,6 +156,7 @@ input::-webkit-inner-spin-button {
   font-weight: var(--font-weight-1);
   font-size: var(--font-size-3);
   display: flex;
+
   justify-content: center;
   align-items: center;
 }
@@ -190,17 +192,169 @@ input::-webkit-inner-spin-button {
   background-color: var(--color-brand-2);
   color: var(--fixed-white);
 }
-.dialog__div4__button1:hover{
-    background-color: var(--color-grey-4);
+
+.dialog__div4__button1:hover {
+  background-color: var(--color-grey-4);
 }
 
 .dialog__label--entrada:hover {
+  border-color: var(--color-brand-1);
+  border: solid 1px var(--color-brand-1);
+  outline: .0625rem var(--color-brand-1);
   background-color: var(--color-grey-5);
+
 }
+
 .dialog__label--saida:hover {
+  border-color: var(--color-brand-1);
+  border: solid 1px var(--color-brand-1);
+  outline: .0625rem var(--color-brand-1);
   background-color: var(--color-grey-5);
+
 }
+
 .dialog__input:focus {
-  outline-color: var(--color-brand-2) ;
+  outline-color: var(--color-brand-2);
+
+}
+
+.spanListValuesVazia {
+  width: 100%;
+  height: 20vh;
+  border-radius: var(--radius-1);
+  border: 1px dashed var(--color-brand-1);
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
+  background-color: var(--color-grey-4);
+
+}
+
+.spanlist__h4 {
+  font-size: var(--font-size-1);
+  font-weight: var(--font-weight-1);
+  font-family: var(--font-family-2);
+
+}
+
+.spanlist__btt {
+  font-size: var(--font-size-2);
+  font-weight: var(--font-weight-1);
+
+  border: none;
+  color: var(--color-grey-2);
+  background-color: var(--color-grey-4);
+
+}
+
+
+@media screen and (min-width:768px) {
+body {
+  position: relative;
+}
+  dialog {
+    height: 350px;
+width: 470px;
+position: absolute;
+top: 30vh;
+left: 35vw;
+border-radius: 8px;
+padding: 24px;
+
+    animation: animationmodal var(--animation-duration) var(--animation-type);
+
+  }
+      
+  .dialog__div--title {
+    display: flex;
+    color: var(--color-grey-1);
+    font-size: var(--font-size-1);
+    font-weight: var(--font-weight-1);
+    line-height: var(--font-line-height-1)
+  }
+  .dialog__div--button {
+    height: 1.875rem;
+    width: 2.1875rem;
+    border-radius: .25rem;
+    font-family: var(--font-family-2);
+    border: none;
+    font-size: var(--font-size-1);
+    font-weight: var(--font-weight-1);
+    color: var(--color-grey-2);
+  }
+  .dialog__input {
+    height: 2.75rem;
+    width: 100%;
+    color: var(--color-grey-2);
+    border: solid var(--color-grey-3);
+    border-radius: var(--radius-1);
+    padding: 1.25rem;
+    font-size: var(--font-size-2);
+    font-weight: var(--font-weight-2);
   
+  }
+  .dialog__span {
+    width: 30%;
+    font-weight: var(--font-weight-2);
+    font-size: var(--font-size-3);
+  }
+  
+  .dialog__label--entrada {
+    width: 25%;
+    height: 2rem;
+    border-radius: var(--radius-1);
+    background-color: var(--color-grey-4);
+    color: var(--color-grey-2);
+    font-weight: var(--font-weight-1);
+    font-size: var(--font-size-3);
+  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: .0625rem;
+  }
+  
+  .dialog__label--saida {
+    width: 25%;
+    height: 2rem;
+    border-radius: var(--radius-1);
+    background-color: var(--color-grey-4);
+    color: var(--color-grey-2);
+    font-weight: var(--font-weight-1);
+    font-size: var(--font-size-3);
+    display: flex;
+  
+    justify-content: center;
+    align-items: center;
+  }
+  .dialog__div--3{
+    gap: .3125rem;
+    display: flex;
+  }
+  .dialog__div--4 {
+    display: flex;
+    width: 100%;
+  }
+  .dialog__div4__button1 {
+    height: 1.9375rem;
+    width: 20%;
+    background-color: var(--color-grey-5);
+    border: none;
+    border-radius: .3125rem;
+    position: absolute;
+    left: 50%;
+  }
+  
+  .dialog__div4__button2 {
+    height: 1.9375rem;
+    width: 25%;
+    background-color: var(--color-brand-1);
+    border: none;
+    border-radius: .3125rem;
+    position: absolute;
+    right: 0;
+  
+  }
 }

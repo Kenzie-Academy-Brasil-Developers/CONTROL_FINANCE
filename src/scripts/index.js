@@ -8,6 +8,8 @@ let result = dollar + soma
 let contId = insertedValues.length
 
 let aba = 'all'
+let valid = insertedValues.length   
+let renderww = ''
 
 const sectionValue = document.createElement('section')
 sectionValue.className = 'section__transantion'
@@ -57,7 +59,7 @@ textSum.innerText = 'Soma dos valores'
 
 const listValues = document.createElement('ul')
 listValues.className = 'section-transation__container-two__list-value'
-
+body.appendChild(main)
 main.appendChild(sectionValue)
 sectionValue.appendChild(containerOne)
 
@@ -74,7 +76,6 @@ divSum.appendChild(currentSum)
 containerTwo.appendChild(listValues)
 
 let renderizar = render(insertedValues)
-
 
 
 
@@ -120,16 +121,18 @@ function render(list) {
         buttonCard.className = 'section--transation__container-two__div-card__button'
         boxDivCard.className = 'section--transation__container-two__div-card__boxButton'
         typeTransantion.className = 'section--transation__container-two__div-card__type'
-
+        
+        
 
         buttonCard.addEventListener('click', () => {
             let currentCardClicked = targerbutton(card)
             let indice = searchIndice(currentCardClicked.id, insertedValues)
             insertedValues.splice(indice, 1)
 
-           
             
-
+            
+             valid = insertedValues.length
+            
             if (currentCardClicked.categoryID == 0) {
                 let indiceEntry = searchIndice(currentCardClicked.id, entradas)
                 entradas.splice(indiceEntry, 1)
@@ -155,6 +158,12 @@ function render(list) {
             result = dollar + soma
             currentSum.innerText = result
 
+            if (valid == 0){
+                
+                renderww = renderMensage()
+           } else {
+                renderww = ''
+           }
         })
 
         listValues.appendChild(card)
@@ -185,7 +194,6 @@ function separeteTransationsforID(list) {
 }
 separeteTransationsforID(insertedValues)
 
-
 buttonOne.addEventListener('click', () => {
     listValues.innerText = ''
     soma = 0
@@ -194,7 +202,12 @@ buttonOne.addEventListener('click', () => {
 
     currentSum.innerText = ''
     currentSum.innerText = somar(insertedValues)
-
+    if (valid == 0){
+                
+        renderww = renderMensage()
+   } else {
+        renderww = ''
+   }
 
 
 })
@@ -205,7 +218,12 @@ buttonTwo.addEventListener('click', () => {
     renderizar = render(entradas)
     currentSum.innerText = ''
     currentSum.innerText = somar(entradas)
-
+    if (entradas.length == 0){
+                
+        renderww = renderMensage()
+   } else {
+        renderww = ''
+   }
 })
 buttonTree.addEventListener('click', () => {
     listValues.innerText = ''
@@ -216,7 +234,12 @@ buttonTree.addEventListener('click', () => {
 
     currentSum.innerText = ''
     currentSum.innerText = somar(saidas)
-
+    if (saidas.length == 0){
+                
+        renderww = renderMensage()
+   } else {
+        renderww = ''
+   }
 })
 
 
@@ -232,7 +255,6 @@ function somar(list) {
     return result
 }
 
-
 function targerbutton(objeto) {
     for (let i = 0; i < insertedValues.length; i++) {
         if (objeto.id == insertedValues[i].id) {
@@ -241,12 +263,6 @@ function targerbutton(objeto) {
         }
     }
 }
-
-
-
-
-
-
 
 function searchIndice(id, list) {
     for (let i = 0; i < list.length; i++) {
@@ -259,5 +275,28 @@ function searchIndice(id, list) {
         }
     }
 }
+function renderMensage(){
+const spanNewValue = document.createElement('div')
 
+const h4 = document.createElement('h4')
+h4.innerText = 'Nenhum valor Cadastrado'
+
+const btt = document.createElement('button')
+btt.innerText = 'Registrar novo valor'
+
+
+btt.addEventListener('click', ()=>{
+    modal.showModal()
+})
+
+
+listValues.appendChild(spanNewValue)
+
+spanNewValue.appendChild(h4)
+spanNewValue.appendChild(btt)
+
+spanNewValue.className = 'spanListValuesVazia'
+h4.className = 'spanlist__h4'
+btt.className = 'spanlist__btt'
+}
 
