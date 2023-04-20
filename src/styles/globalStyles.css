@@ -334,6 +334,7 @@ padding: 24px;
     display: flex;
   }
   .dialog__div--4 {
+    gap: .9375rem;
     display: flex;
     width: 100%;
   }

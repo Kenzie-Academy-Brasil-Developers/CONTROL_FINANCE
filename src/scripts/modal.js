@@ -22,7 +22,7 @@ buttonSend.addEventListener('click', () => {
     let inputValue = textArea.value
     let valuefomatado = parseInt(inputValue)
 
-
+    
     if (typeEntrada.checked) {
         type = 0
     } else if (typeSaida.checked) {
