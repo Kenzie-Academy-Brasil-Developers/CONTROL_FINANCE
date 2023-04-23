@@ -21,8 +21,7 @@ containerOne.className = 'section-transation__container--one'
 const spanContainerOne = document.createElement('span')
 spanContainerOne.className = 'section-transation__containerOne__span'
 spanContainerOne.innerText = 'Resumo financeiro'
-
-
+const teste = document.createElement('div')
 const divButtons = document.createElement('div')
 divButtons.className = 'section-transation__containerOne__div'
 
@@ -64,7 +63,8 @@ main.appendChild(sectionValue)
 sectionValue.appendChild(containerOne)
 
 containerOne.appendChild(spanContainerOne)
-containerOne.appendChild(divButtons)
+containerOne.appendChild(teste)
+teste.appendChild(divButtons)
 divButtons.appendChild(buttonOne)
 divButtons.appendChild(buttonTwo)
 divButtons.appendChild(buttonTree)
