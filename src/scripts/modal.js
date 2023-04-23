@@ -32,11 +32,9 @@ buttonSend.addEventListener('click', () => {
     
     newValue(valuefomatado, type)
     listValues.innerText = ''
-    renderizar = render(insertedValues)
+     render(insertedValues)
     currentSum.innerText = somar(insertedValues)
-    if(valid > 0){
-        renderww = ''
-    }
+    
     
     modal.close()
 
@@ -51,9 +49,9 @@ function newValue(valor1, tipo) {
         value: valor1,
         categoryID: tipo
     }
-    let arrtemp = []
-    arrtemp.push(objet)
-    separeteTransationsforID(arrtemp)
+    
+    
+   
     insertedValues.push(objet)
     
 }

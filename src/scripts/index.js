@@ -1,5 +1,4 @@
 
-
 const body = document.querySelector('body')
 const main = document.querySelector('main')
 let dollar = 'R$ '
@@ -7,7 +6,7 @@ let soma = 0
 let result = dollar + soma
 let contId = insertedValues.length
 
-let aba = 'all'
+
 let valid = insertedValues.length   
 let renderww = ''
 
@@ -75,47 +74,48 @@ divSum.appendChild(textSum)
 divSum.appendChild(currentSum)
 containerTwo.appendChild(listValues)
 
-let renderizar = render(insertedValues)
+render(insertedValues)
 
 
 
 function render(list) {
-    for (let i = 0; i < list.length; i++) {
+    list.forEach(element => {
+        
         const li = document.createElement('ul')
-
+        
         const card = document.createElement('li')
         
-        card.id = list[i].id
-
+        card.id = element.id
+        
         const value = document.createElement('span')
         const dollar = 'R$ '
-        let valuetransantion = list[i].value
-
+        let valuetransantion = element.value
+        
         let valuecontaneado = dollar + valuetransantion
         value.innerText = valuecontaneado
-
-
-
-
+        
+        
+        
+        
         const typeTransantion = document.createElement('p')
-
-        if (list[i].categoryID === 0) {
+        
+        if (element.categoryID === 0) {
             typeTransantion.innerText = 'Entrada'
         } else {
             typeTransantion.innerText = 'Saida'
         }
         const boxDivCard = document.createElement('button')
-
+        
         const buttonCard = document.createElement('img')
         buttonCard.src = './src/assets/trash.svg'
-
+        
         li.appendChild(card)
         card.appendChild(value)
         card.appendChild(typeTransantion)
         card.appendChild(boxDivCard)
         boxDivCard.appendChild(buttonCard)
-
-
+        
+        
         card.className = 'section--transation__container-two__div-card'
         value.className = 'section--transation__container-two__div-card__value'
         buttonCard.className = 'section--transation__container-two__div-card__button'
@@ -123,145 +123,98 @@ function render(list) {
         typeTransantion.className = 'section--transation__container-two__div-card__type'
         
         
-
+        
         buttonCard.addEventListener('click', () => {
-            let currentCardClicked = targerbutton(card)
-            let indice = searchIndice(currentCardClicked.id, insertedValues)
+            
+           
+            
+            let indice = searchIndice(element.id , insertedValues)
+            
             insertedValues.splice(indice, 1)
-
             
-            
-             valid = insertedValues.length
-            
-            if (currentCardClicked.categoryID == 0) {
-                let indiceEntry = searchIndice(currentCardClicked.id, entradas)
-                entradas.splice(indiceEntry, 1)
-                
-
-            } else if (currentCardClicked.categoryID == 1) {
-                let indiceExit = searchIndice(currentCardClicked.id, saidas)
-                saidas.splice(indiceExit, 1)
-            }
-
-            if (aba == 'all') {
-                listValues.innerText = ''
-
-                renderizar = render(insertedValues)
-            } else if (aba == 'entradas') {
-                listValues.innerText = ''
-                renderizar = render(entradas)
-            } else {
-                listValues.innerText = ''
-                renderizar = render(saidas)
-            }
-            soma = soma - currentCardClicked.value
-            result = dollar + soma
-            currentSum.innerText = result
-
-            if (valid == 0){
-                
+            card.remove()
+           
+            if (list.length == 0){
                 renderww = renderMensage()
-           } else {
-                renderww = ''
-           }
+            }
+            
+                soma = soma - element.value
+                result =  dollar + soma
+                currentSum.innerText = result
         })
-
+        
         listValues.appendChild(card)
-
+        
+    });
     }
-
-}
-let entradas = insertedValues.filter(batata => insertedValues.categoryID == 0)
-
-let saidas = insertedValues.filter(batata => insertedValues.categoryID == 1)
-
-function separeteTransationsforID(list) {
-
-    for (let i = 0; i < list.length; i++) {
-
-        if (list[i].categoryID == 0) {
-
-
-
-            entradas.push(list[i])
-        } else if (list[i].categoryID == 1) {
-            saidas.push(list[i])
-
-        } else {
-            lixeira.push(list[i])
-        }
-    }
-}
-separeteTransationsforID(insertedValues)
+    
 
 buttonOne.addEventListener('click', () => {
-    listValues.innerText = ''
-    soma = 0
-    aba= 'all'
-    renderizar = render(insertedValues)
-
+    listValues.innerText=  ''
     currentSum.innerText = ''
     currentSum.innerText = somar(insertedValues)
-    if (valid == 0){
-                
-        renderww = renderMensage()
-   } else {
-        renderww = ''
-   }
 
+    if (insertedValues.length == 0){
+        renderww = renderMensage()
+    } else {
+        renderww = ''
+    }
+    render(insertedValues)
 
 })
 buttonTwo.addEventListener('click', () => {
+    let entradas = insertedValues.filter(entrada => entrada.categoryID == 0)
     listValues.innerText = ''
-    soma = 0
-    aba = 'entradas'
-    renderizar = render(entradas)
-    currentSum.innerText = ''
     currentSum.innerText = somar(entradas)
+    
     if (entradas.length == 0){
-                
         renderww = renderMensage()
-   } else {
+    } else {
         renderww = ''
-   }
+    }
+    render(entradas)
+
 })
 buttonTree.addEventListener('click', () => {
-    listValues.innerText = ''
-    aba = 'saidas'
-    soma = 0
+    let saidas = insertedValues.filter(saida => saida.categoryID == 1)
+    listValues.innerText= ''
+    currentSum.innerText =  somar(saidas)
 
-    renderizar = render(saidas)
-
-    currentSum.innerText = ''
-    currentSum.innerText = somar(saidas)
     if (saidas.length == 0){
-                
         renderww = renderMensage()
-   } else {
+    } else {
         renderww = ''
-   }
+    }
+    render(saidas)
 })
 
 
 
 function somar(list) {
     soma = 0
-    for (let i = 0; i < list.length; i++) {
-
-        soma += list[i].value
-
-    }
+    list.forEach(element => {
+       
+    
+            soma += element.value
+    
+        
+    });
     let result = dollar + soma.toFixed(2)
     return result
 }
 
-function targerbutton(objeto) {
-    for (let i = 0; i < insertedValues.length; i++) {
-        if (objeto.id == insertedValues[i].id) {
 
-            return insertedValues[i]
+
+function targerbutton(objeto) {
+    insertedValues.forEach(element => {
+        if (objeto.id == element.id){
+                    
+             
+            return element
         }
-    }
+       
+    });
+    
 }
 
 function searchIndice(id, list) {
